@@ -23,3 +23,17 @@ object judo {
         return self.presupuestoBase()  * cantidadMedallasInicial
     }
 }
+
+// Nueva disciplina
+object hockey {
+    method presupuestoBase() = 375
+    // Metodos y cambios de palos
+    var cantidadPalosInicial = 10
+    method cantidadPalosNuevos(cantidad){
+        cantidadPalosInicial = cantidadPalosInicial + cantidad
+    }
+    // Precio total y cuenta completa
+    method precioTotal() {
+        return self.presupuestoBase() +  5 * cantidadPalosInicial
+    }
+}

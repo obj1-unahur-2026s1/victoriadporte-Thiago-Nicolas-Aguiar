@@ -1,9 +1,61 @@
-import example.pepita
+import disciplinas.*
+import atletas.*
+import presupuestos.*
+import elementos.*
 
-describe "group of tests for pepita" {
-
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+describe "Casos de Prueba" {    
+  test "Victoria, su deporte realizado y sus entrenadores" {
+    // Victoria se quiere parecer a Pareto (esté mide 150cm). Necesita un traje de judo para practicar la disciplina
+    victoriaDPorte.nuevaAltura(150)
+    // Asigno nueva Disciplina y altura deseado para el mismo
+    victoriaDPorte.nuevaDisciplina(judo)
+    // Fijo para quien es el nuevo traje
+    trajeJudo.atletaNuevo(victoriaDPorte)
+    // Le digo al comite el valor de cada entrenador junto con el elemento de la disciplina
+    comiteOlimpico.presupuestoNuevo(500)
+    comiteOlimpico.nuevoElemento(trajeJudo)
+    // Le indico que tendra 4 entrenadores para la disciplina
+    presupuestoVictoria.cantidadEntrenadoresNuevos(4)
+    // Pruebo que el presupuesto de Victoria es el deseado
+    assert.equals(32480, victoriaDPorte.precioTotal())
   }
+  test "Victoria, su nuevo deporte realizado y sus nuevos entrenadores" {
+    // Victoria se quiere parecer a Delpo (esté mide 210cm). Necesita una raqueta para practicar la disciplina
+    victoriaDPorte.nuevaAltura(210)
+    // Les informo al comite la edad de Victoria
+    victoriaDPorte.nuevaEdad(20)
+    // Asigno nueva Disciplina y altura deseado para el mismo
+    victoriaDPorte.nuevaDisciplina(tenis)
 
+    // Fijo para quien es la nueva raqueta
+    raqueta.atletaNuevo(victoriaDPorte)
+
+    // Le digo al comite el valor de cada entrenador junto con el elemento de la disciplina
+    comiteOlimpico.presupuestoNuevo(250)
+    comiteOlimpico.nuevoElemento(raqueta)
+    // Le indico que tendra 2 entrenadores para la disciplina
+    presupuestoVictoria.cantidadEntrenadoresNuevos(2)
+    // Pruebo que el presupuesto de Victoria es el deseado
+    assert.equals(4715, victoriaDPorte.precioTotal())
+  }
+  test "Victoria, su ultimo deporte realizado y sus ultimos entrenadores" {
+    // Victoria se quiere parecer a Aymar (esté mide 172cm). Necesita un palo para practicar la disciplina
+    victoriaDPorte.nuevaAltura(172)
+    // Les informo al comite la edad de Victoria
+    victoriaDPorte.nuevaEdad(20)
+    // Asigno nueva Disciplina y altura deseado para el mismo
+    victoriaDPorte.nuevaDisciplina(hockey)
+
+    // Fijo para quien es el nuevo palo
+    palos.atletaNuevo(victoriaDPorte)
+
+    // Le digo al comite el valor de cada entrenador junto con el elemento de la disciplina
+    comiteOlimpico.presupuestoNuevo(500)
+    comiteOlimpico.nuevoElemento(palos)
+    // Le indico que tendra 1 entrenador para la disciplina
+    presupuestoVictoria.cantidadEntrenadoresNuevos(1)
+    // Pruebo que el presupuesto de Victoria es el deseado
+    assert.equals(5425, victoriaDPorte.precioTotal())
+  }
 }
+
